@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "1048269196229",
+    "firebase_url": "https://gobabi-105b3-default-rtdb.firebaseio.com",
+    "project_id": "gobabi-105b3",
+    "storage_bucket": "gobabi-105b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048269196229:android:3718bfac4bbaedb85d99ac",
+        "android_client_info": {
+          "package_name": "com.gobabi.driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048269196229-aksej1amhejh6bsf651odrg4v45lp4g1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF1WptTaHRDXvz3uAxawZ8PNVBODBrHEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048269196229-aksej1amhejh6bsf651odrg4v45lp4g1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048269196229-5b1ik84dp2v9i4v6n5ui6gkdbo4ptqsq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "go.babi.user"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1048269196229:android:fbdfce750ab77ad45d99ac",
+        "android_client_info": {
+          "package_name": "com.gobabi.user"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1048269196229-aksej1amhejh6bsf651odrg4v45lp4g1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDF1WptTaHRDXvz3uAxawZ8PNVBODBrHEc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1048269196229-aksej1amhejh6bsf651odrg4v45lp4g1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1048269196229-5b1ik84dp2v9i4v6n5ui6gkdbo4ptqsq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "go.babi.user"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
