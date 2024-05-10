@@ -465,7 +465,7 @@ class SignInScreenState extends State<SignInScreen> {
                               termsConditionUrl: termsCondition));
                     },
                   ),
-                  SizedBox(height: 45),
+                  SizedBox(height: 50),
                   Center(
                     child: Text(
                       "1.8.3",
