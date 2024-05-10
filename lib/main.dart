@@ -9,6 +9,8 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:user/service/NotificationService.dart';
+import 'package:user/service/notifi_service.dart';
 import '../network/RestApis.dart';
 import '../utils/Extensions/StringExtensions.dart';
 import '/model/FileModel.dart';
@@ -19,7 +21,7 @@ import 'language/BaseLanguage.dart';
 import 'screens/NoInternetScreen.dart';
 import 'screens/SplashScreen.dart';
 import 'service/ChatMessagesService.dart';
-import 'service/NotificationService.dart';
+// import 'service/NotificationService.dart';
 import 'service/UserServices.dart';
 import 'store/AppStore.dart';
 import 'utils/Colors.dart';
@@ -45,7 +47,10 @@ bool mIsEnterKey = false;
 bool isCurrentlyOnNoInternet = false;
 
 ChatMessageService chatMessageService = ChatMessageService();
+NotificationService2 notificationService2 = NotificationService2();
 NotificationService notificationService = NotificationService();
+// NotificationService
+
 UserService userService = UserService();
 late Position currentPosition;
 
@@ -65,6 +70,7 @@ Future<void> initialize({
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await notificationService2.initNotification();
   sharedPref = await SharedPreferences.getInstance();
   if (Platform.isIOS) {
     await Firebase.initializeApp(

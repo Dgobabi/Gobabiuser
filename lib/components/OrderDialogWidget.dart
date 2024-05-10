@@ -658,7 +658,7 @@ class _OrderDialogWidgetState extends State<OrderDialogWidget> {
                           ),
                           child: Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                                EdgeInsetsDirectional.fromSTEB(10, 20, 10, 20),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -667,7 +667,7 @@ class _OrderDialogWidgetState extends State<OrderDialogWidget> {
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
                                     widget.driverData!.userDetail!.carColor
-                                                ?.startsWith("0X") !=
+                                                ?.startsWith("0x") !=
                                             false
                                         ? ColorFiltered(
                                             colorFilter: ColorFilter.mode(
@@ -684,8 +684,8 @@ class _OrderDialogWidgetState extends State<OrderDialogWidget> {
                                             ),
                                           )
                                         : Column(children: [
-                                            // Text(
-                                            //     '${widget.driverData!.userDetail!.carColor}'),
+                                            Text(
+                                                '${widget.driverData!.userDetail!.carColor}'),
                                             ClipRRect(
                                               borderRadius:
                                                   BorderRadius.circular(8),

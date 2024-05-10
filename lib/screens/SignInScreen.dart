@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:user/service/notifi_service.dart';
 import '../components/OTPDialog.dart';
 import '../utils/Extensions/context_extension.dart';
 import '../model/LoginResponse.dart';
@@ -47,6 +48,7 @@ class SignInScreenState extends State<SignInScreen> {
   String? privacyPolicy;
   String? termsCondition;
   String countryCode = defaultCountryCode;
+  // NotificationService2 notificationService = NotificationService2();
 
   @override
   void initState() {
@@ -54,6 +56,14 @@ class SignInScreenState extends State<SignInScreen> {
     super.initState();
     _requestNotificationPermission();
     init();
+  }
+
+  voirNotifTest() {
+    NotificationService2().showNotification(
+      id: 0,
+      body: "Bienvenue !",
+      title: "Gobabi",
+    );
   }
 
   void init() async {
@@ -203,9 +213,13 @@ class SignInScreenState extends State<SignInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(height: context.statusBarHeight + 16),
-                  ClipRRect(
-                      borderRadius: radius(50),
-                      child: Image.asset(ic_app_logo, width: 100, height: 100)),
+                  InkWell(
+                    onTap: () => voirNotifTest(),
+                    child: ClipRRect(
+                        borderRadius: radius(50),
+                        child:
+                            Image.asset(ic_app_logo, width: 100, height: 100)),
+                  ),
                   SizedBox(height: 16),
                   Text(language.welcome, style: boldTextStyle(size: 22)),
                   RichText(

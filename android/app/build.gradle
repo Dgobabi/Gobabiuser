@@ -40,13 +40,32 @@ android {
            storeFile file('D:/user/upload-keystore.jks')
            storePassword '12345678'
         }   }
+
     defaultConfig {
         applicationId "com.gobabi.user"
         minSdkVersion 21
         targetSdkVersion 34
         versionCode 11
         versionName '1.8.3'
+
+        multiDexEnabled true
     }
+
+    // AJOUT ORLANDO 
+
+     compileOptions {
+    // Flag to enable support for the new language APIs
+    coreLibraryDesugaringEnabled true
+    // Sets Java compatibility to Java 8
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  dependencies {
+  coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.2.2'
+}
+
+
 
     buildTypes {
         release {

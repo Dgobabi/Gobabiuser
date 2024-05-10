@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:user/utils/images.dart';
 
-class NotificationService {
+class NotificationService2 {
   final FlutterLocalNotificationsPlugin notificationsPlugin =
       FlutterLocalNotificationsPlugin();
 
   Future<void> initNotification() async {
     AndroidInitializationSettings initializationSettingsAndroid =
-        const AndroidInitializationSettings(ic_logo_white);
+        const AndroidInitializationSettings('ic_app_logo2');
 
     var initializationSettingsIOS = DarwinInitializationSettings(
         requestAlertPermission: true,
@@ -17,8 +17,8 @@ class NotificationService {
         onDidReceiveLocalNotification:
             (int id, String? title, String? body, String? payload) async {});
 
-    var initializationSettings = InitializationSettings(
-        android: initializationSettingsAndroid, iOS: initializationSettingsIOS);
+    var initializationSettings =
+        InitializationSettings(android: initializationSettingsAndroid);
     await notificationsPlugin.initialize(initializationSettings,
         onDidReceiveNotificationResponse:
             (NotificationResponse notificationResponse) async {});
@@ -33,6 +33,8 @@ class NotificationService {
 
   Future showNotification(
       {int id = 0, String? title, String? body, String? payLoad}) async {
+    print("notification will display montrer");
+    
     return notificationsPlugin.show(
         id, title, body, await notificationDetails());
   }

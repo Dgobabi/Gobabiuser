@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:user/components/OrderDialogWidget.dart';
 import 'package:user/model/lieuPrefereModel.dart';
+import 'package:user/service/NotificationService.dart';
 import 'package:user/service/notifi_service.dart';
 import '../utils/Extensions/context_extension.dart';
 import '../components/drawer_component.dart';
@@ -548,16 +549,20 @@ class DashBoardScreenState extends State<DashBoardScreen> {
                         isDense: true,
                         focusedErrorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(defaultRadius),
-                            borderSide: BorderSide(color: dividerColor)),
+                            borderSide: BorderSide(color: Colors.white)),
                         disabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(defaultRadius),
-                            borderSide: BorderSide(color: Colors.purple[50]!)),
+                            borderSide: BorderSide(
+                                color:
+                                    const Color.fromARGB(255, 255, 255, 255)!)),
                         focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(defaultRadius),
-                            borderSide: BorderSide(color: Colors.purple[100]!)),
+                            borderSide: BorderSide(
+                                color:
+                                    const Color.fromARGB(255, 255, 255, 255)!)),
                         enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(defaultRadius),
-                            borderSide: BorderSide(color: dividerColor)),
+                            borderSide: BorderSide(color: Colors.white)),
                         errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(defaultRadius),
                             borderSide: BorderSide(color: Colors.red)),
@@ -714,16 +719,28 @@ class DashBoardScreenState extends State<DashBoardScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black.withOpacity(0.2), spreadRadius: 1),
+                  blurRadius: 8,
+                  color: Color(0x33000000),
+                  offset: Offset(
+                    0,
+                    2,
+                  ),
+                  spreadRadius: 1,
+                )
+                // BoxShadow(
+                //     color: Colors.black.withOpacity(0.2), spreadRadius: 1),
               ],
               borderRadius: BorderRadius.circular(defaultRadius),
             ),
-            child: Icon(Icons.drag_handle),
+            child: Icon(
+              Icons.drag_handle,
+              color: primaryColor,
+            ),
           ),
         ),
         inkWellWidget(
           onTap: () {
-            NotificationService()
+            NotificationService2()
                 .showNotification(title: 'Sample title', body: 'It works!');
             launchScreen(context, NotificationScreen(),
                 pageRouteAnimation: PageRouteAnimation.Slide);
@@ -734,11 +751,20 @@ class DashBoardScreenState extends State<DashBoardScreen> {
               color: Colors.white,
               boxShadow: [
                 BoxShadow(
-                    color: Colors.black.withOpacity(0.2), spreadRadius: 1),
+                  blurRadius: 8,
+                  color: Color(0x33000000),
+                  offset: Offset(
+                    0,
+                    2,
+                  ),
+                  spreadRadius: 1,
+                )
+                // BoxShadow(
+                //     color: Colors.black.withOpacity(0.2), spreadRadius: 1),
               ],
               borderRadius: BorderRadius.circular(defaultRadius),
             ),
-            child: Icon(Ionicons.notifications_outline),
+            child: Icon(Ionicons.notifications_outline, color: primaryColor),
           ),
         ),
       ],

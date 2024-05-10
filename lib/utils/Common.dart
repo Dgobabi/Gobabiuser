@@ -8,6 +8,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:html/parser.dart';
 import 'package:intl/intl.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
+import 'package:user/service/notifi_service.dart';
 import '../model/LoginResponse.dart';
 import '../network/RestApis.dart';
 import '../screens/ChatScreen.dart';
@@ -19,6 +20,7 @@ import '../utils/Extensions/StringExtensions.dart';
 import '../../main.dart';
 import 'Extensions/Loader.dart';
 import 'Extensions/app_common.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 Widget dotIndicator(list, i) {
   return SizedBox(
@@ -457,7 +459,22 @@ oneSignalSettings() async {
 
   OneSignal.initialize(mOneSignalAppIdDriver);
 
+  NotificationService2 notificationService2 = new NotificationService2();
+
+  // // Initialise le plugin flutter_local_notifications
+  // FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+  //     FlutterLocalNotificationsPlugin();
+  // var initializationSettingsAndroid = AndroidInitializationSettings('app_icon');
+  // // var initializationSettingsIOS = IOSInitializationSettings();
+  // var initializationSettings =
+  //     InitializationSettings(android: initializationSettingsAndroid);
+  // await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
   OneSignal.Notifications.addForegroundWillDisplayListener((event) {
+    notificationService2.showNotification(
+      body: event.notification.body,
+      title: "Gobabi",
+    );
     print(
         'NOTIFICATION WILL DISPLAY LISTENER CALLED WITH 1: ${event.notification.body}');
 
@@ -484,6 +501,21 @@ oneSignalSettings() async {
         launchScreen(getContext, RideDetailScreen(orderId: notId));
       }
     }
+
+    // var androidPlatformChannelSpecifics =
+    //     AndroidNotificationDetails('channel_id', 'channel_name',
+    //         // 'channel_description',
+    //         importance: Importance.max,
+    //         // priority: Priority.high,
+    //         ticker: 'ticker');
+
+    // // var iOSPlatformChannelSpecifics = IOSNotificationDetails();
+    // var platformChannelSpecifics =
+    //     NotificationDetails(android: androidPlatformChannelSpecifics);
+
+    // await flutterLocalNotificationsPlugin.show(
+    //     0, 'TITRE' ?? '', 'NOTIFICATION' ?? '', platformChannelSpecifics,
+    //     payload: 'data');
   });
 }
 
